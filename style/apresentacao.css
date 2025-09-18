@@ -1,0 +1,73 @@
+/* ===== APRESENTAÇÃO (PDF Viewer) ===== */
+/* Layout antigo (card central) com novas animações reaproveitadas */
+.container{max-width:1180px;margin:0 auto;padding:60px 28px 120px;}
+.card{background:#0f241a;border:1px solid rgba(255,255,255,0.08);border-radius:26px;padding:60px clamp(1.6rem,4vw,3.2rem) 70px;box-shadow:0 18px 40px -10px rgba(0,0,0,.55);position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 520px at 85% 20%,rgba(52,211,153,0.15),transparent 70%),linear-gradient(135deg,rgba(255,255,255,.05),transparent 55%);pointer-events:none;}
+
+ .apresentacao-title{margin:0;font-size:clamp(2.6rem,6vw,3.6rem);line-height:1.05;font-weight:700;color:#fff;}
+ .apresentacao-sub{margin:0;font-size:1.05rem;line-height:1.55;color:var(--muted);max-width:380px;}
+ .apresentacao-actions{display:flex;flex-wrap:wrap;gap:16px;}
+ .apresentacao-actions{margin-bottom:26px;}
+ .btn.pill{border-radius:100px;padding:15px 28px;font-weight:600;}
+
+/* Animações de entrada */
+ .fade-lift{opacity:0;transform:translateY(40px) scale(.97);animation:fadeLift .95s var(--d,.1s) cubic-bezier(.16,.8,.24,1) forwards;}
+ .intro-seq > *{opacity:0;animation:seqIn .8s cubic-bezier(.16,.8,.24,1) forwards;}
+ .intro-seq > *:nth-child(1){animation-delay:.15s;}
+ .intro-seq > *:nth-child(2){animation-delay:.27s;}
+ .intro-seq > *:nth-child(3){animation-delay:.39s;}
+ @keyframes fadeLift{0%{opacity:0;transform:translateY(40px) scale(.97);filter:blur(12px);}55%{opacity:1;filter:blur(0);}100%{opacity:1;transform:translateY(0) scale(1);}}
+ @keyframes seqIn{0%{opacity:0;transform:translateY(28px) scale(.97);filter:blur(10px);}60%{opacity:1;filter:blur(0);}100%{opacity:1;transform:translateY(0) scale(1);}}
+
+ @media (prefers-reduced-motion:reduce){
+  .fade-lift,.intro-seq > *{animation:none !important;opacity:1 !important;transform:none !important;filter:none !important;}
+ }
+    .pdf-wrap{
+        position: relative;
+        height: 100vh;
+        width: 900px;
+        max-width: 100%;
+        margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #111827;
+    display: block;
+}
+ .pdf-embed,.pdf-iframe{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border: 0;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+}
+ .fallback{
+    padding:24px;
+    color:#e5e7eb;
+    font-size:15px
+}
+ .fallback a{
+    color:var(--acc-2)
+}
+ @media (max-width:640px){
+        .container{padding:46px 18px 100px;}
+        .card{padding:48px 22px 56px;}
+        .pdf-wrap{height:60vh;}
+        .apresentacao-title{font-size:clamp(2.3rem,8vw,3.1rem);}
+}
+ .pdf-wrap:fullscreen{
+    width:100vw;
+    height:100vh;
+    border-radius:0;
+    border:0
+}
+ .pdf-wrap:-webkit-full-screen{
+    width:100vw;
+    height:100vh;
+    border-radius:0;
+    border:0
+}
+ 
