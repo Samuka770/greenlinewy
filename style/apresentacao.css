@@ -70,4 +70,18 @@
     border-radius:0;
     border:0
 }
+
+/* Background exclusivo da página de apresentação */
+body.page-apresentacao{
+    position: relative;
+    /* mantém os gradientes do global por baixo e adiciona a imagem como base */
+    background:
+        radial-gradient(1200px 600px at 70% -10%,#0f3a23 0%,#0b2012 75%,#0a1a0f 92%),
+        linear-gradient(160deg, transparent 0%, transparent 75%, color-mix(in oklab, var(--earth-700) 25%, transparent) 100%),
+        url('img/folhas-sol.png');
+    background-size:1200px 600px, 100% 100%, cover;
+    background-repeat:no-repeat, no-repeat, no-repeat;
+    background-position:70% -10%, center, center;
+    background-attachment:scroll, scroll, fixed;
+}
  
